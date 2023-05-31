@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="description" content="...">
+	<meta name="keywords" content="...">
+	<title>CARDED APPLE</title>
+	<link rel="stylesheet" type="text/css" href="strona_files/bootstrap-reboot.min.css">
+	<link rel="stylesheet" type="text/css" href="strona_files/brands.min.css">
+	<link href="strona_files/fontawesome.min.css" rel="stylesheet">
+	<link href="strona_files/imperial.css" rel="stylesheet">
+	<link href="strona_files/solid.min.css" rel="stylesheet">
+</head>
+<body>
+	<nav>
+		<div id="logo"><a href="..."><i class="fab fa-apple"></i><span>NAME</span></a></div>
+		<div id="menu"><a href="..."><i class="fas fa-shopping-cart"></i> View cart (1)</a></div>
+	</nav>
+	<header>
+		<div id="intro">
+			<h1>PRODUCT</h1>
+			<h2>available in our store</h2>
+			<h2>at ultra low prices</h2>
+            <div id="introBtn">
+				<a class="button" href="...">See Products</a>
+		    </div>
+        </div>
+	</header>
+
+	
+	
+		<section class="center" id="form">
+		<form method="post" action="/checkout" class="form">
+			<h3>Shipping address</h3>
+			<label for="name"><i class="fa fa-user"></i> Full Name</label>
+			<input name="name" id="name" required placeholder="John Money" value="" autofocus>
+			<label for="email"><i class="fa fa-envelope"></i> E-mail</label>
+			<input name="email" id="email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]+$" placeholder="john@example.com" value="">
+			<label for="address"><i class="fa fa-address-card"></i> Address</label>
+			<input name="address" id="address" required placeholder="Street, home number, city, country, post code" value="">
+			<label for="phone"><i class="fa fa-phone"></i> Phone (optional)</label>
+			<input name="phone" id="phone" placeholder="Phone" value="">
+			<label for="comments"><i class="fa fa-comment"></i> Comments (optional)</label>
+			<input name="comments" id="comments" placeholder="Comments" value="">
+			<label for="shipping"><i class="fa fa-plane"></i> Shipping option</label>
+			<div class="form-ship-opts flex">
+				<div class="form-ship-opt">
+					<input type="radio" name="shipping" value="Regular" onchange="updatePrice()" id="regular" checked>
+					<label for="regular" tabindex="0">Regular (free, 3-5 days)</label>
+				</div>
+				<div class="form-ship-opt">
+					<input type="radio" name="shipping" value="Overnight" onchange="updatePrice()" id="overnight">
+					<label for="overnight" tabindex="0">Overnight (+$30, next day)</label>
+				</div>
+			</div>
+			<input type="hidden" name="escrow" value="0">
+			<p class="form-total"><i class="fa fa-shopping-cart"></i> Total: <span id="price">PRICE</span></p>
+			<div><button>Finish order</button></div>
+			<input type="hidden" name="csrf" value="6239011afe7614ca6a87d476dd532525a3c3789859993f8f600b7af912f44028">
+						<input type="hidden" name="qty[22]" value="1">
+					</form>
+	</section>
+	<script>
+	function updatePrice() {
+		var type = document.forms[0].elements['shipping'].value;
+		var price = 100;
+		if (type === 'Overnight') price += 30;
+		document.getElementById('price').innerHTML = '$'+price;
+	}
+	updatePrice();
+	</script>
+	
+		
+	<footer>
+		&copy; NAME
+	</footer>
+	
+</body>
+</html>
